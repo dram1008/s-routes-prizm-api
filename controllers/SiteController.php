@@ -2,8 +2,10 @@
 
 namespace app\controllers;
 
+use app\services\VarDumper;
 use Yii;
 use yii\filters\AccessControl;
+use yii\httpclient\Client;
 use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
@@ -73,7 +75,11 @@ class SiteController extends Controller
      */
     public function actionPrizm999()
     {
+        $client = new Client(['baseUrl' => 'http://localhost:9976/test']);
 
+        $response = $client->get('')->send();
+
+        VarDumper::dump($response);
 
 
     }
