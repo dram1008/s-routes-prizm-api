@@ -5,6 +5,7 @@ namespace app\controllers;
 use app\services\VarDumper;
 use Yii;
 use yii\filters\AccessControl;
+use yii\helpers\Json;
 use yii\httpclient\Client;
 use yii\web\Controller;
 use yii\web\Response;
@@ -82,7 +83,12 @@ class SiteController extends Controller
             'account' => 'PRIZM-GPN2-8CZ7-PNYP-8CEHG',
         ])->send();
 
-        VarDumper::dump($response);
+        try {
+            $data = Json::decode($response->content);
+            VarDumper::dump($data);
+        } catch (\Exception $e) {
+            VarDumper::dump($response);
+        }
 
 
     }
