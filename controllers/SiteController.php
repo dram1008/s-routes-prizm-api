@@ -81,6 +81,7 @@ class SiteController extends Controller
         $response = $client->get('prizm', [
             'requestType' => 'getBlockchainTransactions',
             'account' => 'PRIZM-GPN2-8CZ7-PNYP-8CEHG',
+            'lastIndex' => 10,
         ])->send();
 
         try {
