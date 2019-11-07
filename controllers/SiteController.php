@@ -74,6 +74,27 @@ class SiteController extends Controller
      *
      * @return string
      */
+    public function actionPrizm777()
+    {
+        $client = new Client(['baseUrl' => 'http://localhost:7742']);
+
+        $response = $client->get('prizm', Yii::$app->request->get())->send();
+
+        try {
+            $data = Json::decode($response->content);
+            VarDumper::dump($data);
+        } catch (\Exception $e) {
+            VarDumper::dump($response);
+        }
+
+
+    }
+
+    /**
+     * Displays homepage.
+     *
+     * @return string
+     */
     public function actionPrizm999()
     {
         $client = new Client(['baseUrl' => 'http://localhost:7742']);
