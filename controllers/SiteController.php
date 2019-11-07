@@ -61,7 +61,8 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        throw new \HttpException('File not found', 404);
+        echo 1;
+        exit();
 
         return $this->render('index');
     }
