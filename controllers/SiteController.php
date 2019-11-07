@@ -78,7 +78,7 @@ class SiteController extends Controller
         $client = new Client(['baseUrl' => 'http://localhost:7742']);
 
         $response = $client->get('test', [
-            'requestType' => 'getAccountTransactions',
+            'requestType' => 'getAccount',
             'account' => 'PRIZM-GPN2-8CZ7-PNYP-8CEHG',
         ])->send();
 
