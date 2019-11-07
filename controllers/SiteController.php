@@ -75,9 +75,12 @@ class SiteController extends Controller
      */
     public function actionPrizm999()
     {
-        $client = new Client(['baseUrl' => 'http://localhost:9976/prizm']);
+        $client = new Client(['baseUrl' => 'http://localhost:7742']);
 
-        $response = $client->get('')->send();
+        $response = $client->get('prizm', [
+            'requestType' => 'getAccountTransactions',
+            'account' => 'PRIZM-GPN2-8CZ7-PNYP-8CEHG',
+        ])->send();
 
         VarDumper::dump($response);
 
