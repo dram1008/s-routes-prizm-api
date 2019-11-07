@@ -117,6 +117,32 @@ class SiteController extends Controller
      *
      * @return string
      */
+    public function actionPrizm998()
+    {
+        $client = new Client(['baseUrl' => 'http://localhost:7742']);
+
+        $response = $client->get('prizm', [
+            'requestType' => 'getBlockchainTransactions',
+            'account' => 'PRIZM-GPN2-8CZ7-PNYP-8CEHG',
+            'lastIndex' => 10,
+        ])->send();
+
+        try {
+            Yii::$app->response->format = Response::FORMAT_JSON;
+            $data = Json::decode($response->content);
+            return $data;
+        } catch (\Exception $e) {
+            VarDumper::dump($response);
+        }
+
+
+    }
+
+    /**
+     * Displays homepage.
+     *
+     * @return string
+     */
     public function actionPrizm999()
     {
         $client = new Client(['baseUrl' => 'http://localhost:7742']);
