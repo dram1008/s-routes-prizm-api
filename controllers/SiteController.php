@@ -75,7 +75,7 @@ class SiteController extends Controller
      */
     public function actionPrizm999()
     {
-        $client = new Client(['baseUrl' => 'http://localhost:9976/']);
+        $client = new Client(['baseUrl' => 'http://localhost:9976/prizm']);
 
         $response = $client->get('')->send();
 
