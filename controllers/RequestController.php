@@ -16,6 +16,8 @@ use app\models\ContactForm;
 
 class RequestController extends Controller
 {
+    public $enableCsrfValidation = false;
+
     public function init()
     {
         Yii::$app->response->format = Response::FORMAT_JSON;
