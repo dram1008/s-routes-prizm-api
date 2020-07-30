@@ -76,7 +76,7 @@ class SiteController extends Controller
      */
     public function actionPrizm777()
     {
-        $client = new Client(['baseUrl' => 'http://localhost:7742']);
+        $client = new Client(['baseUrl' => 'http://5.187.3.161:7742']);
 
         $response = $client->get('prizm', Yii::$app->request->get())->send();
 
