@@ -76,7 +76,7 @@ class SiteController extends Controller
      */
     public function actionPrizm777()
     {
-        $client = new Client(['baseUrl' => 'http://localhost:7742']);
+        $client = new Client(['baseUrl' => 'http://webserver:7742']);
 
         $response = $client->get('prizm', Yii::$app->request->get())->send();
 
@@ -97,7 +97,7 @@ class SiteController extends Controller
      */
     public function actionPrizm778()
     {
-        $client = new Client(['baseUrl' => 'http://localhost:7742']);
+        $client = new Client(['baseUrl' => 'http://webserver:7742']);
 
         $response = $client->get('prizm', Yii::$app->request->get())->send();
 
@@ -119,7 +119,7 @@ class SiteController extends Controller
      */
     public function actionPrizm998()
     {
-        $client = new Client(['baseUrl' => 'http://localhost:7742']);
+        $client = new Client(['baseUrl' => 'http://webserver:7742']);
 
         $response = $client->get('prizm', [
             'requestType' => 'getBlockchainTransactions',
@@ -145,7 +145,7 @@ class SiteController extends Controller
      */
     public function actionPrizm999()
     {
-        $client = new Client(['baseUrl' => 'http://localhost:7742']);
+        $client = new Client(['baseUrl' => 'http://webserver:7742']);
 
         $response = $client->get('prizm', [
             'requestType' => 'getBlockchainTransactions',
