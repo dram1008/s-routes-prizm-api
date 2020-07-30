@@ -10,7 +10,6 @@ services:
       ports:
        - "80:80"
        - "443:443"
-       - "7742:7742"
 
     php-fpm:
       build: phpdocker/php-fpm
