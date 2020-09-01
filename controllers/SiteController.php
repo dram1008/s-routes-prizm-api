@@ -175,6 +175,9 @@ class SiteController extends Controller
         $params = Yii::$app->request->post();
         $response = $client->get('prizm', $params)->send();
 
+        VarDumper::dump($response);
+
+
         return  Json::decode($response->content);
     }
 
