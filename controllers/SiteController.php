@@ -163,4 +163,19 @@ class SiteController extends Controller
 
     }
 
+    /**
+     * Displays homepage.
+     *
+     * @return string
+     * @throws
+     */
+    public function actionIndex2()
+    {
+        $client = new Client(['baseUrl' => 'http://localhost:7742']);
+        $params = Yii::$app->request->post();
+        $response = $client->get('prizm', $params)->send();
+
+        return  Json::decode($response->content);
+    }
+
 }
