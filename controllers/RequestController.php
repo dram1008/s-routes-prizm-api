@@ -35,7 +35,7 @@ class RequestController extends Controller
      */
     public function actionIndex()
     {
-        $client = new Client(['baseUrl' => 'http://host.docker.internal:7742']);
+        $client = new Client(['baseUrl' => 'http://localhost:7742']);
         $params = Yii::$app->request->post();
         unset($params['key']);
         $response = $client->get('prizm', $params)->send();
