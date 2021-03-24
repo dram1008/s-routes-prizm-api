@@ -38,6 +38,7 @@ class RequestController extends Controller
     {
         $client = new Client(['baseUrl' => 'http://'.$_SERVER['SERVER_ADDR'].':7742']);
         $params = Yii::$app->request->post();
+        unset($params['key']);
         $response = $client->get('prizm', $params)->send();
 
         return  Json::decode($response->content);
@@ -53,6 +54,7 @@ class RequestController extends Controller
     {
         $client = new Client(['baseUrl' => 'http://'.$_SERVER['SERVER_ADDR'].':7742']);
         $params = Yii::$app->request->post();
+        unset($params['key']);
         $response = $client->get('prizm', $params)->send();
 
         return  Json::decode($response->content);
