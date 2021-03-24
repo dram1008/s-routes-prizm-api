@@ -29,30 +29,13 @@ class RequestController extends Controller
     }
 
     /**
-     * Displays homepage.
      *
      * @return string
      * @throws
      */
     public function actionIndex()
     {
-        $client = new Client(['baseUrl' => 'http://'.$_SERVER['SERVER_ADDR'].':7742']);
-        $params = Yii::$app->request->post();
-        unset($params['key']);
-        $response = $client->get('prizm', $params)->send();
-
-        return  Json::decode($response->content);
-    }
-
-    /**
-     * Displays homepage.
-     *
-     * @return string
-     * @throws
-     */
-    public function actionIndex2()
-    {
-        $client = new Client(['baseUrl' => 'http://'.$_SERVER['SERVER_ADDR'].':7742']);
+        $client = new Client(['baseUrl' => 'http://host.docker.internal:7742']);
         $params = Yii::$app->request->post();
         unset($params['key']);
         $response = $client->get('prizm', $params)->send();
