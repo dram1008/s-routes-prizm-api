@@ -36,7 +36,7 @@ class RequestController extends Controller
      */
     public function actionIndex()
     {
-        $client = new Client(['baseUrl' => 'http://php-fpm:7742']);
+        $client = new Client(['baseUrl' => 'http://'.$_SERVER['SERVER_ADDR'].':7742']);
         $params = Yii::$app->request->post();
         $response = $client->get('prizm', $params)->send();
 
@@ -51,7 +51,7 @@ class RequestController extends Controller
      */
     public function actionIndex2()
     {
-        $client = new Client(['baseUrl' => 'http://php-fpm:7742']);
+        $client = new Client(['baseUrl' => 'http://'.$_SERVER['SERVER_ADDR'].':7742']);
         $params = Yii::$app->request->post();
         $response = $client->get('prizm', $params)->send();
 
