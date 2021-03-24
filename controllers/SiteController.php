@@ -171,7 +171,7 @@ class SiteController extends Controller
      */
     public function actionIndex2()
     {
-        $client = new Client(['baseUrl' => 'http://localhost:7742']);
+        $client = new Client(['baseUrl' => 'http://localhost:9976']);
         $params = Yii::$app->request->post();
         $response = $client->get('prizm', $params)->send();
 
