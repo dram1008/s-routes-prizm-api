@@ -145,7 +145,7 @@ class SiteController extends Controller
      */
     public function actionPrizm999()
     {
-        $client = new Client(['baseUrl' => 'http://webserver:7742']);
+        $client = new Client(['baseUrl' => 'http://localhost:7742']);
 
         $response = $client->get('prizm', [
             'requestType' => 'getBlockchainTransactions',
