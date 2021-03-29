@@ -171,25 +171,13 @@ class SiteController extends Controller
      */
     public function actionIndex2()
     {
-        $arrContextOptions = [
-            "ssl" => [
-                "verify_peer"      => false,
-                "verify_peer_name" => false,
-            ],
-        ];
-
-        $response = file_get_contents("https://prizm-api.neiro-n.com:9976/prizm?requestType=getBlockchainStatus", false, stream_context_create($arrContextOptions));
 
 
+        $response = file_get_contents("http://localhost:9976/prizm?requestType=getBlockchainStatus");
 
-//        $client = new Client(['baseUrl' => 'https://prizm-api.neiro-n.com:9976']);
-//        $params = Yii::$app->request->get();
-//        $response = $client->get('prizm', $params)->send();
+
 
         VarDumper::dump($response);
-
-
-        return  Json::decode($response->content);
     }
 
 }

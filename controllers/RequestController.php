@@ -35,9 +35,24 @@ class RequestController extends Controller
      */
     public function actionIndex()
     {
-        $client = new Client(['baseUrl' => 'http://localhost:9976']);
+        $arrContextOptions = [
+            "ssl" => [
+                "verify_peer"      => false,
+                "verify_peer_name" => false,
+            ],
+        ];
+
+
         $params = Yii::$app->request->post();
         unset($params['key']);
+        $rows = [];
+        foreach ($params)
+
+        $response = file_get_contents("https://prizm-api.neiro-n.com:9976/prizm?requestType=getBlockchainStatus", false, stream_context_create($arrContextOptions));
+
+
+        $client = new Client(['baseUrl' => 'http://localhost:9976']);
+
         $response = $client->get('prizm', $params)->send();
 
         return  Json::decode($response->content);
