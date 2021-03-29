@@ -57,6 +57,6 @@ class RequestController extends Controller
             throw $e;
         }
 
-        return  $response;
+        return  $data;
     }
 }
