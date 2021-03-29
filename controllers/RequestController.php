@@ -42,19 +42,21 @@ class RequestController extends Controller
             ],
         ];
 
-
         $params = Yii::$app->request->post();
         unset($params['key']);
         $rows = [];
-        foreach ($params)
+        foreach ($params as $k => $v) {
+            $rows[] = $k . '=' . urlencode($v);
+        }
 
-        $response = file_get_contents("https://prizm-api.neiro-n.com:9976/prizm?requestType=getBlockchainStatus", false, stream_context_create($arrContextOptions));
+        $response = file_get_contents("https://prizm-api.neiro-n.com:9976/prizm?" . join('&', $rows), false, stream_context_create($arrContextOptions));
 
+        try {
+            $data = Json::decode($response);
+        } catch (\Exception $e) {
+            throw $e;
+        }
 
-        $client = new Client(['baseUrl' => 'http://localhost:9976']);
-
-        $response = $client->get('prizm', $params)->send();
-
-        return  Json::decode($response->content);
+        return  $response;
     }
 }
